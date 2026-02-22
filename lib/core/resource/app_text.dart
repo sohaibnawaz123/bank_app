@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:delivery_app/core/utils/extension/app_font_weight.dart';
 
-
 class AppText {
   AppText._internal()
     : _baseTextStyle = GoogleFonts.poppins(
@@ -37,7 +36,7 @@ class AppText {
   TextStyle get bodyText =>
       _baseTextStyle.copyWith(fontSize: 16, fontWeight: AppFontWeight.medium);
   TextStyle get bodyText2 =>
-      _baseTextStyle.copyWith(fontSize: 16, fontWeight: AppFontWeight.regular);
+      _baseTextStyle.copyWith(fontSize: 14, fontWeight: AppFontWeight.regular);
   TextStyle get bodyText3 =>
       _baseTextStyle.copyWith(fontSize: 14, fontWeight: AppFontWeight.medium);
 

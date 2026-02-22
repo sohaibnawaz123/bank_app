@@ -1,5 +1,6 @@
 import 'package:delivery_app/component/app_bar/auth_appbar.dart';
 import 'package:delivery_app/component/text/content.dart';
+import 'package:delivery_app/component/text_field/label_content_feild.dart';
 import 'package:delivery_app/core/resource/app_asset.dart';
 import 'package:delivery_app/core/utils/extension/app_edge_insets.dart';
 import 'package:delivery_app/core/utils/extension/app_padding.dart';
@@ -37,7 +38,7 @@ class _LoginViewState extends State<LoginView> {
               color: AppColor.white,
               title: 'Sign In',
             ).paddingSymmetric(
-              horizontal: context.pagePadding.top,
+              // horizontal: context.pagePadding.left,
               vertical: context.pagePadding.top,
             ),
 
@@ -47,7 +48,7 @@ class _LoginViewState extends State<LoginView> {
               left: 0,
               right: 0,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.9,
+                height: MediaQuery.of(context).size.height * 0.85,
                 padding: EdgeInsets.symmetric(
                   horizontal: context.pagePadding.left,
                   vertical: 20,
@@ -56,34 +57,47 @@ class _LoginViewState extends State<LoginView> {
                 decoration: BoxDecoration(
                   color: AppColor.white,
                   borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(36),
+                    topRight: Radius.circular(36),
                   ),
                 ),
 
                 /// Scroll safe for keyboard
                 child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Content(
-                        data: 'Welcome to us,',
-                        textStyle: context.headingText,
-                      ),
-                      Content(
-                        data: 'Hello there, create New account',
-                        textStyle: context.bodyText,
-                      ),
+                  child: Padding(
+                    padding: EdgeInsets.all(context.pagePadding.left),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Content(
+                          data: 'Welcome to us,',
+                          textStyle: context.headingText,
+                          size: 28,
+                        ),
+                        const SizedBox(height: 10),
+                        Content(
+                          data: 'Hello there, create New account',
+                          textStyle: context.bodyText,
+                        ),
 
-                      const SizedBox(height: 16),
-                      Align(
-                        alignment: Alignment.center,
-                        child: SvgPicture.asset(AppAsset.loginIcon,width: 100,height: 100,),
-                      ),
+                        const SizedBox(height: 50),
+                        Align(
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset(
+                            AppAsset.loginIcon,
+                            width: 100,
+                            height: 100,
+                          ),
+                        ),
 
-                      // add your fields here
-                    ],
+                        // add your fields here
+                        LabelContentField(
+                          labelText: 'Email',
+                          hintText: 'Enter your email',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
